@@ -37,6 +37,7 @@ public class GamePlayer {
         this.player = player;
         this.game = game;
         this.joinDate = new Date();
+        this.ship = new HashSet<Ship>();
     }
     public Player getPlayer() {
         return player;
