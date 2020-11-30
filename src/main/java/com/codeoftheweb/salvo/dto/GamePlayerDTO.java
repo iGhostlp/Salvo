@@ -1,8 +1,11 @@
 package com.codeoftheweb.salvo.dto;
 
 import com.codeoftheweb.salvo.model.GamePlayer;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
+
 import static java.util.stream.Collectors.toList;
 
 public class GamePlayerDTO {
@@ -17,6 +20,14 @@ public class GamePlayerDTO {
         dto.put("ships",gamePlayer.getShip().stream()
                                             .map(s -> ShipDTO.makeShipDTO(s))
                                             .collect(toList()));
-        return  dto;
+        dto.put("salvoes",gamePlayer.getGame().getGamePlayers()
+                                            .stream()
+                                            .flatMap(gp -> gp.getSalvo().stream()
+                                            .map(salvo -> {
+                                                SalvoDTO salvoDTO = new SalvoDTO();
+                                            return salvoDTO.makeSalvoDTO(salvo);
+                                            }))
+                                            .collect(Collectors.toList()));
+                return  dto;
     }
 }
