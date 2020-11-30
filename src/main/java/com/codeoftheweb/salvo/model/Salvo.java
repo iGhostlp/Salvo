@@ -20,7 +20,7 @@ public class Salvo {
     private GamePlayer gamePlayer;
 
     @ElementCollection
-    @Column(name = "location")
+    @Column(name = "locations")
     private List<String> locations;
 
 

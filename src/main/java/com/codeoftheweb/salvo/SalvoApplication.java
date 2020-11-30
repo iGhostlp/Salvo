@@ -79,14 +79,20 @@ public class SalvoApplication {
 			shipRepository.save(ship9);
 			shipRepository.save(ship10);
 
-			//Salvo
+			//Salvoes
 			Salvo salvo1 = new Salvo(1 ,List.of("D7","J1","B3","G6","H4"));
 			/*Salvo salvo2 = new Salvo(2 ,List.of("J7","J6","B3","G6","H4"));
 			Salvo salvo3 = new Salvo(3 ,List.of("J8","B9","B3","G6","H4"));
 			Salvo salvo4 = new Salvo(4 ,List.of("F9","","B3","G6","H4"));
 			Salvo salvo5 = new Salvo(5 ,List.of("A3","J1","B3","G6","H4"));*/
 			salvoRepository.save(salvo1);
-
+			//Salvoes p2
+			Salvo salvo6 = new Salvo(1 ,List.of("D3","J7","B8","G9","H1"));
+			/*Salvo salvo2 = new Salvo(2 ,List.of("J7","J6","B3","G6","H4"));
+			Salvo salvo3 = new Salvo(3 ,List.of("J8","B9","B3","G6","H4"));
+			Salvo salvo4 = new Salvo(4 ,List.of("F9","","B3","G6","H4"));
+			Salvo salvo5 = new Salvo(5 ,List.of("A3","J1","B3","G6","H4"));*/
+			salvoRepository.save(salvo6);
 
 
 
@@ -103,6 +109,7 @@ public class SalvoApplication {
 			gamePlayer2.addShip(ship8);
 			gamePlayer2.addShip(ship9);
 			gamePlayer2.addShip(ship10);
+			gamePlayer2.addSalvo(salvo6);
 			gamePlayerRepository.save(gamePlayer2);
 
 
