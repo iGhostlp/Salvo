@@ -1,13 +1,7 @@
 package com.codeoftheweb.salvo;
 
-import com.codeoftheweb.salvo.model.Game;
-import com.codeoftheweb.salvo.repository.GameRepository;
-import com.codeoftheweb.salvo.model.GamePlayer;
-import com.codeoftheweb.salvo.repository.GamePlayerRepository;
-import com.codeoftheweb.salvo.model.Player;
-import com.codeoftheweb.salvo.repository.PlayerRepository;
-import com.codeoftheweb.salvo.model.Ship;
-import com.codeoftheweb.salvo.repository.ShipRepository;
+import com.codeoftheweb.salvo.model.*;
+import com.codeoftheweb.salvo.repository.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -24,7 +18,7 @@ public class SalvoApplication {
 	}
 
 	@Bean
-	public CommandLineRunner initData(PlayerRepository playerRepository, GameRepository gameRepository, GamePlayerRepository gamePlayerRepository, ShipRepository shipRepository) {
+	public CommandLineRunner initData(PlayerRepository playerRepository, GameRepository gameRepository, GamePlayerRepository gamePlayerRepository, ShipRepository shipRepository, SalvoRepository salvoRepository) {
 		return (args) -> {
 			//Players
 			Player p1 = new Player("Jack Bauer ", "j.bauer@ctu.gov ");
@@ -85,11 +79,23 @@ public class SalvoApplication {
 			shipRepository.save(ship9);
 			shipRepository.save(ship10);
 
+			//Salvo
+			Salvo salvo1 = new Salvo(1 ,List.of("D7","J1","B3","G6","H4"));
+			/*Salvo salvo2 = new Salvo(2 ,List.of("J7","J6","B3","G6","H4"));
+			Salvo salvo3 = new Salvo(3 ,List.of("J8","B9","B3","G6","H4"));
+			Salvo salvo4 = new Salvo(4 ,List.of("F9","","B3","G6","H4"));
+			Salvo salvo5 = new Salvo(5 ,List.of("A3","J1","B3","G6","H4"));*/
+			salvoRepository.save(salvo1);
+
+
+
+
 			gamePlayer1.addShip(ship1);
 			gamePlayer1.addShip(ship2);
 			gamePlayer1.addShip(ship3);
 			gamePlayer1.addShip(ship4);
 			gamePlayer1.addShip(ship5);
+			gamePlayer1.addSalvo(salvo1);
 			gamePlayerRepository.save(gamePlayer1);
 
 			gamePlayer2.addShip(ship6);

@@ -30,14 +30,24 @@ public class GamePlayer {
     private Set<Ship> ship;
 
 
+
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "gamePlayerID")
+    private Set<Salvo> salvo;
+
+
+
+
     public GamePlayer() {
         this.ship = new HashSet<Ship>();
+        this.salvo =new HashSet<Salvo>();
     }
     public GamePlayer(Player player, Game game) {
         this.player = player;
         this.game = game;
         this.joinDate = new Date();
         this.ship = new HashSet<Ship>();
+        this.salvo= new HashSet<Salvo>();
     }
     public Player getPlayer() {
         return player;
@@ -83,7 +93,20 @@ public class GamePlayer {
         public void setShip (Set < Ship > ship) {
             this.ship = ship;
         }
-    };
+
+    public Set<Salvo> getSalvo() {
+        return salvo;
+    }
+
+    public void setSalvo(Set<Salvo> salvo) {
+        this.salvo = salvo;
+    }
+
+    public void addSalvo (Salvo newSalvo) {
+        this.salvo.add(newSalvo);
+        newSalvo.setGamePlayer(this);
+    }
+};
 
 
 
