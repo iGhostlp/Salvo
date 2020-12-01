@@ -101,6 +101,11 @@ public class SalvoApplication {
 			Score score2 = new Score(0.5,(LocalDateTime.now()),g1,p2);
 			scoreRepository.save(score2);
 
+			Score score3 = new Score(1,(LocalDateTime.now()),g2,p3);
+			scoreRepository.save(score3);
+			Score score4 = new Score(0,(LocalDateTime.now()),g2,p4);
+			scoreRepository.save(score4);
+
 
 
 

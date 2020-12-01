@@ -105,12 +105,7 @@ public class GamePlayer {
         this.salvo.add(newSalvo);
         newSalvo.setGamePlayer(this);
     }
-    /*public Score getGameScore(Game game) {
-        this.player.getScores().stream()
-                .filter(score -> score.getGame().getId() == game.getId()).findFirst().orElse(null);
-        return getGameScore(game);
 
-    }*/
 
 }
 
