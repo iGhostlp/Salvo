@@ -54,4 +54,8 @@ public class Game{
     public void setScores(Set<Score> scores) {
         this.scores = scores;
     }
+    public Score getGameScore (Game game){
+        return getScores() .stream()
+                            .filter(score -> score.getGame().getId()== game.getId()).findFirst().orElse(null);
+    }
 }

@@ -74,6 +74,4 @@ public class Score {
         this.player = player;
     }
 
-
-
 }

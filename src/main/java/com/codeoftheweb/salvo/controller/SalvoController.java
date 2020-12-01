@@ -2,7 +2,7 @@ package com.codeoftheweb.salvo.controller;
 import com.codeoftheweb.salvo.dto.GameDTO;
 import com.codeoftheweb.salvo.dto.GamePlayerDTO;
 import com.codeoftheweb.salvo.dto.PlayerDTO;
-import com.codeoftheweb.salvo.model.Player;
+import com.codeoftheweb.salvo.model.GamePlayer;
 import com.codeoftheweb.salvo.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,10 +31,12 @@ public class SalvoController {
     @Autowired
     SalvoRepository salvoRepository;
 
-    @RequestMapping("/game_view/{gamePlayerId}")
+   @RequestMapping("/game_view/{gamePlayerId}")
     public Map<String,Object> getGameView(@PathVariable Long gamePlayerId){
         return GamePlayerDTO.gameView(gamePlayerRepository.findById(gamePlayerId).get());
     }
+
+
     PlayerDTO dtoPlayer = new PlayerDTO();
     @RequestMapping("/players")
     public  List<Map<String,Object>> getPlayerAll(){
@@ -43,6 +45,7 @@ public class SalvoController {
                 .map(player -> dtoPlayer.makePlayerDTO(player))
                 .collect(Collectors.toList());
     }
+
     GameDTO dtoGame = new GameDTO();
     @RequestMapping("/games")
     public List<Map<String,Object>> getGameAll(){
@@ -52,6 +55,7 @@ public class SalvoController {
                .collect(Collectors.toList());
 
     }
+
     @RequestMapping("/leaderBoard")
     public List<Map<String,Object>> getLeaderBoard(){
         return playerRepository .findAll()
@@ -59,9 +63,7 @@ public class SalvoController {
                                 .map(s -> PlayerDTO.makePlayerScoreDTO(s))
                                 .collect(Collectors.toList());
     }
-
-
-    }
+}
 
 
 
