@@ -24,8 +24,8 @@ public class GamePlayerDTO {
                                             .stream()
                                             .flatMap(gp -> gp.getSalvo().stream()
                                             .map(salvo -> {
-                                                SalvoDTO salvoDTO = new SalvoDTO();
-                                            return salvoDTO.makeSalvoDTO(salvo);
+                                                    SalvoDTO salvoDTO = new SalvoDTO();
+                                                    return salvoDTO.makeSalvoDTO(salvo);
                                             }))
                                             .collect(Collectors.toList()));
                 return  dto;
