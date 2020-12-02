@@ -1,12 +1,7 @@
 package com.codeoftheweb.salvo.model;
 
-import com.codeoftheweb.salvo.model.GamePlayer;
 import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 @Entity
@@ -18,20 +13,24 @@ public class Player {
     private long id;
     private String name;
     private String email;
+    private String password;
 
     @OneToMany(mappedBy = "player", fetch = FetchType.EAGER)
+    @OrderBy
     private Set<GamePlayer> gamePlayers;
 
 
     @OneToMany(mappedBy = "player", fetch = FetchType.EAGER)
+    @OrderBy
     private Set<Score> scores;
 
     public Player() {
     }
 
-    public Player(String name, String email) {
+    public Player(String name, String email, String password) {
         this.name = name;
         this.email = email;
+        this.password=password;
     }
 
     public long getId() {
@@ -58,9 +57,9 @@ public class Player {
         this.email = email;
     }
 
-    public String toString() {
+    /*public String toString() {
         return name + " " + email;
-    }
+    }*/
 
     public Set<GamePlayer> getGamePlayerSet() {
         return gamePlayers;
@@ -78,6 +77,13 @@ public class Player {
         this.scores = scores;
     }
 
+   public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     //Scores
     public double getTotalScore() {

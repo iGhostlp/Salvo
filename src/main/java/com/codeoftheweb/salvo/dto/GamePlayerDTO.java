@@ -15,7 +15,7 @@ public class GamePlayerDTO {
         dto.put("player", PlayerDTO.makePlayerDTO(gamePlayer.getPlayer()));
         return dto;
     }
-    public static Map<String, Object> gameView(GamePlayer gamePlayer) {
+    public static Map<String, Object> makeGameViewDTO(GamePlayer gamePlayer) {
         Map<String, Object> dto = GameDTO.makeGameDTO(gamePlayer.getGame());
         dto.put("ships",gamePlayer.getShip().stream()
                                             .map(s -> ShipDTO.makeShipDTO(s))

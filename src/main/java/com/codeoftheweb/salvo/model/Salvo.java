@@ -21,6 +21,7 @@ public class Salvo {
 
     @ElementCollection
     @Column(name = "locations")
+    @OrderBy
     private List<String> locations;
 
 
