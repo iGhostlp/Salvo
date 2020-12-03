@@ -33,6 +33,12 @@ public class Player {
         this.password=password;
     }
 
+    public Player(String email, String password) {
+        this.email=email;
+        this.password=password;
+
+    }
+
     public long getId() {
         return id;
     }
