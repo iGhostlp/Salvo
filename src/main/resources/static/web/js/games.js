@@ -7,7 +7,7 @@ $(function() {
 
 function updateViewGames(data) {
 
-  var htmlList = data.map(function (game) {
+  var htmlList = data.games.map(function (game) {
       return  '<li class="list-group-item">' + new Date(game.created).toLocaleString() + ' '
       + game.gamePlayers.map(function(element) { return element.player.email}).join(', ') + '</li>';
   }).join('');
@@ -103,7 +103,7 @@ function loadData() {
   $.get("/api/games")
     .done(function(data) {
       updateViewGames(data);
-      gamesData = data;
+      gamesData = data.games;
       playersArray  =   getPlayers(gamesData);
       playersArray  =   addScoresToPlayersArray(playersArray,gamesData);
       showScoreBoard(playersArray);
