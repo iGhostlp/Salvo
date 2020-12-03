@@ -16,9 +16,11 @@ public class Game{
     private LocalDateTime created;
 
     @OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
+    @OrderBy
     private Set<GamePlayer> gamePlayers;
 
     @OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
+    @OrderBy
     private Set<Score> scores;
 
     public Game(){}

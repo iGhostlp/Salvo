@@ -18,10 +18,12 @@ public class Score {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "gameID")
+    @OrderBy
     private Game game;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "playerID")
+    @OrderBy
     private Player player;
 
 
