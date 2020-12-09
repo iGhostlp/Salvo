@@ -63,9 +63,9 @@ public class Player {
         this.email = email;
     }
 
-    /*public String toString() {
+    public String toString() {
         return name + " " + email;
-    }*/
+    }
 
     public Set<GamePlayer> getGamePlayerSet() {
         return gamePlayers;
@@ -118,5 +118,7 @@ public class Player {
         return getScores().stream()
                 .filter(score -> score.getGame().getId() == game.getId()).findFirst().orElse(null);
     }
+
 }
+
 
