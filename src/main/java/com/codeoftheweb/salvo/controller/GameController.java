@@ -67,6 +67,7 @@ public class GameController {
         Set<Long> gamePlayerToJoin= gameToJoin.getGamePlayers() .stream()
                 .map(gp ->
                         gp.getPlayer().getId()).collect(Collectors.toSet());
+
         if (gamePlayerToJoin.contains(player.getId())){
             return new ResponseEntity<>(Util.makeMap("error", "Already connected"), HttpStatus.ALREADY_REPORTED);
         }
@@ -81,6 +82,7 @@ public class GameController {
 
 
     }
+    //crear partida
     @RequestMapping (path = "/games" , method = RequestMethod.POST)
     public ResponseEntity <Object> createNewGame (Authentication authentication) {
 
@@ -96,7 +98,7 @@ public class GameController {
         gamePlayerRepository.save(gamePlayer);
         return new ResponseEntity<>(Util.makeMap("gpid", gamePlayer.getId()), HttpStatus.CREATED);
     }
-
+    //Game All
     @RequestMapping(path = "/games",method = RequestMethod.GET)
     public Map<String,Object> getGameAll(Authentication authentication) {
         Map<String,Object>  dto = new LinkedHashMap<>();

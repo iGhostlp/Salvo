@@ -16,7 +16,7 @@ public class Ship {
     private long id;
     private String type;
 
-    @ManyToOne (fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "gamePlayerID")
     private GamePlayer gamePlayer;
 
@@ -26,7 +26,7 @@ public class Ship {
     private List<String> locations;
 
 
-    public Ship(){
+    public Ship() {
         this.locations = new ArrayList<>();
     }
 
@@ -68,8 +68,9 @@ public class Ship {
     public void setGamePlayer(GamePlayer gamePlayer) {
         this.gamePlayer = gamePlayer;
     }
-
-
 }
+
+
+
 
 
