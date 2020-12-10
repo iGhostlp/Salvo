@@ -85,7 +85,7 @@ public class GamePlayer {
         newShip.setGamePlayer(this);
     }
 
-    public Set<Ship> getShip() {
+    public Set<Ship> getShips() {
         return ship;
     }
 

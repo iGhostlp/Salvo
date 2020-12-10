@@ -25,7 +25,7 @@ public class GamePlayerDTO {
         hits.put("self", new ArrayList<>());
         hits.put("opponent",new ArrayList<>());
 
-        dto.put("ships",gamePlayer.getShip().stream()
+        dto.put("ships",gamePlayer.getShips().stream()
                                             .map(s -> ShipDTO.makeShipDTO(s))
                                             .collect(toList()));
         dto.put("salvoes",gamePlayer.getGame().getGamePlayers()
