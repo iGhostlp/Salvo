@@ -84,14 +84,14 @@ public class SalvoApplication {
 			Ship ship1 = new Ship("Carrier", List.of("C1", "C2", "C3", "C4", "C5"));
 			Ship ship2 = new Ship("Battleship", List.of("F3", "F4", "F5", "F6"));
 			Ship ship3 = new Ship("Submarine", List.of("H1", "H2", "H3"));
-			Ship ship4 = new Ship(" Destroyer", List.of("D2", "D3", "D4"));
-			Ship ship5 = new Ship("Patrol Boat", List.of("A1", "A2"));
+			Ship ship4 = new Ship("destroyer", List.of("D2", "D3", "D4"));
+			Ship ship5 = new Ship("patrolboat", List.of("A1", "A2"));
 			//Ship Player 2
 			Ship ship6 = new Ship("Carrier", List.of("C9", "C8", "C7", "C6", "C5"));
 			Ship ship7 = new Ship("Battleship", List.of("F3", "F4", "F5", "F6"));
 			Ship ship8 = new Ship("Submarine", List.of("H1", "H2", "H3"));
-			Ship ship9 = new Ship(" Destroyer", List.of("D2", "D3", "D4"));
-			Ship ship10 = new Ship("Patrol Boat", List.of("A1", "A2"));
+			Ship ship9 = new Ship("destroyer", List.of("D2", "D3", "D4"));
+			Ship ship10 = new Ship("patrolboat", List.of("A1", "A2"));
 
 			//Repository Player 1
 			shipRepository.save(ship1);
