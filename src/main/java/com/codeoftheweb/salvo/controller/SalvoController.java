@@ -4,21 +4,14 @@ import com.codeoftheweb.salvo.model.*;
 import com.codeoftheweb.salvo.repository.GamePlayerRepository;
 import com.codeoftheweb.salvo.repository.PlayerRepository;
 import com.codeoftheweb.salvo.repository.SalvoRepository;
-import com.codeoftheweb.salvo.repository.ShipRepository;
 import com.codeoftheweb.salvo.util.Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
-
-import javax.swing.text.html.Option;
-import java.util.List;
 import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 
 @RestController
 @RequestMapping("/api")
@@ -68,7 +61,7 @@ public class SalvoController {
             return new ResponseEntity<>(Util.makeMap("error","It's your opponent's turn"),HttpStatus.FORBIDDEN);
         }
 
-        if (gamePlayer.getSalvo().size() > 1) {
+        if (gamePlayer.getSalvo().size()- opponent.getSalvo().size() >=1) {
             return new ResponseEntity<>(Util.makeMap("error", "All Salvos Already Shooted"), HttpStatus.FORBIDDEN);
         }
         salvo.setTurn ((int) (myTurnSalvo+1));

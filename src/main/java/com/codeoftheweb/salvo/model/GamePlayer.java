@@ -50,6 +50,7 @@ public class GamePlayer {
         this.salvo = new HashSet<Salvo>();
     }
 
+
     public Player getPlayer() {
         return player;
     }
@@ -108,18 +109,13 @@ public class GamePlayer {
         newSalvo.setGamePlayer(this);
     }
 
-    /*//Filter GamePlayer
-    public Optional <GamePlayer> getOpponent(){
+    public GamePlayer getOpponent() {
         return this.getGame().getGamePlayers()
-                .stream()
-                .filter(gpn -> gpn.getId() != this.getId())
-                .findFirst();
-
+                .stream().filter(gamePlayer -> gamePlayer.getId() != this.getId())
+                .findFirst()
+                .orElse(null);
     }
-
-*/
 }
-
 
 
 

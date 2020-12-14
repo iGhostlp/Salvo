@@ -60,7 +60,6 @@ public class Ship {
         this.locations = locations;
     }
 
-
     public GamePlayer getGamePlayer() {
         return gamePlayer;
     }
