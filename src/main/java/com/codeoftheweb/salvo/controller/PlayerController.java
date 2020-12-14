@@ -1,5 +1,6 @@
 package com.codeoftheweb.salvo.controller;
 
+import com.codeoftheweb.salvo.dto.PlayerDTO;
 import com.codeoftheweb.salvo.model.Player;
 import com.codeoftheweb.salvo.repository.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 
 @RestController
 @RequestMapping("/api")
@@ -21,6 +26,19 @@ public class PlayerController {
     //encoder
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+
+
+    @RequestMapping(value = "/players", method = RequestMethod.GET)
+    public List<Map<String,Object>> getPlayerAll() {
+        return playerRepository.findAll()
+                .stream()
+                .map(player -> {
+                    PlayerDTO pDTO = new PlayerDTO();
+                    return pDTO.makePlayerDTO(player);
+                })
+                .collect(Collectors.toList());
+    }
 
     @RequestMapping(path = "/players", method = RequestMethod.POST)
     public ResponseEntity<Object> register(

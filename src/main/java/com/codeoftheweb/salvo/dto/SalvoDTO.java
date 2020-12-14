@@ -1,9 +1,8 @@
 package com.codeoftheweb.salvo.dto;
 
 import com.codeoftheweb.salvo.model.Salvo;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
+import java.util.*;
 
 
 public class SalvoDTO {
@@ -14,6 +13,11 @@ public class SalvoDTO {
         dto.put("locations",salvo.getLocations());
         dto.put("player", salvo.getGamePlayer().getPlayer().getId());
         return dto;
+
     }
+
+
+
+
 
 }

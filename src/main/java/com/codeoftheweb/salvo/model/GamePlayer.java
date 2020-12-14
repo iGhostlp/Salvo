@@ -3,8 +3,10 @@ package com.codeoftheweb.salvo.model;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import javax.swing.text.html.Option;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 @Entity
@@ -48,6 +50,7 @@ public class GamePlayer {
         this.salvo = new HashSet<Salvo>();
     }
 
+
     public Player getPlayer() {
         return player;
     }
@@ -85,7 +88,7 @@ public class GamePlayer {
         newShip.setGamePlayer(this);
     }
 
-    public Set<Ship> getShip() {
+    public Set<Ship> getShips() {
         return ship;
     }
 
@@ -106,9 +109,13 @@ public class GamePlayer {
         newSalvo.setGamePlayer(this);
     }
 
-
+    public GamePlayer getOpponent() {
+        return this.getGame().getGamePlayers()
+                .stream().filter(gamePlayer -> gamePlayer.getId() != this.getId())
+                .findFirst()
+                .orElse(null);
+    }
 }
-
 
 
 
