@@ -74,17 +74,17 @@ public class Util {
         if (gamePlayer.getGame().getGamePlayers().size()==2){
             return "PLAY";
         }
-        if (hitsDTO.makeHitsDTO(gamePlayer).stream().anyMatch(hit -> hit.equals(gamePlayer)))
-            return "WON";
 
+
+        if (Util.getOpponent(gamePlayer).get().getShips().size()>=1){
+            return "PLAY";
+        }
 
          if (Util.getOpponent(gamePlayer).get().getShips().isEmpty()){
 
             return "WON";
         }
-         if (Util.getOpponent(gamePlayer).get().getShips().size()>=1){
-             return "PLAY";
-         }
+
 
         if (gamePlayer.getShips().size() == 0) {
             return "LOST";
