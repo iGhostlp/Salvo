@@ -437,6 +437,12 @@ function makeGameRecordTable (hitsArray, gameRecordTableId) {
                 hitsReport += "SUNK! ";
                 $(playerTag + 'battleshipIcon').html('<img src="img/battleshipsunk.png">');
                 shipsAfloat--;
+                sunken();
+
+
+
+
+
             }
         }
         if (playTurn.damages.submarineHits > 0){
