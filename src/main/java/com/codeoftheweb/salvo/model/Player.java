@@ -2,6 +2,7 @@ package com.codeoftheweb.salvo.model;
 
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -25,6 +26,7 @@ public class Player {
     private Set<Score> scores;
 
     public Player() {
+        this.scores= new HashSet<Score>();
     }
 
     public Player(String name, String email, String password) {

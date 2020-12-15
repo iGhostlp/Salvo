@@ -31,6 +31,7 @@ public class Util {
         return Optional.of(opponent);
 
     }
+
     //GetTypes
     public static List<String> getLocatiosByType(String type, GamePlayer self) {
         return self.getShips().size() == 0 ? new ArrayList<>() : self.getShips().stream().filter(ship -> ship.getType().equals(type)).findFirst().get().getLocations();
@@ -52,19 +53,23 @@ public class Util {
         if (myTurnSalvo > enemyTurnSalvo) {
             return "WAIT";
         }
-        if (gamePlayer.getGame().getGamePlayers().size() == 2) {
-            HitsDTO hitsDTO = new HitsDTO();
-            int mySelfImpact = hitsDTO.getSunkenDTO(gamePlayer);
-            int opponentImpact = hitsDTO.getSunkenDTO(gamePlayer.getOpponent());
+        if (gamePlayer.getGame().getGamePlayers().size() == 2 && gamePlayer.getSalvo().size() > Util.getOpponent(gamePlayer).get().getSalvo().size()) {
 
-            if (mySelfImpact == 17 && opponentImpact == 17) {
-                return "TIE";
-            } else if (mySelfImpact == 17) {
-                return "LOSE";
-            } else if (opponentImpact == 17) {
-                return "WON";
-            }
+
+        HitsDTO hitsDTO = new HitsDTO();
+        int mySelfImpact = hitsDTO.getSunkenDTO(gamePlayer);
+        int opponentImpact = hitsDTO.getSunkenDTO(gamePlayer.getOpponent());
+
+
+        if (mySelfImpact == 17 && opponentImpact == 17) {
+
+            return "TIE";
+        } else if (mySelfImpact == 17) {
+            return "LOSE";
+        } else if (opponentImpact == 17) {
+            return "WON";
         }
+    }
 
         return "PLAY";
     }
