@@ -4,6 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.Set;
 
 
@@ -23,7 +24,9 @@ public class Game{
     @OrderBy
     private Set<Score> scores;
 
-    public Game(){}
+    public Game(){
+        this.gamePlayers = new HashSet<>();
+    }
 
     public Game(LocalDateTime created) {
         this.created = created;
