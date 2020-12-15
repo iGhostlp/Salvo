@@ -43,7 +43,7 @@ public class Util {
     }
 
     //Sunken
-    public static List <Ship> getSunkenShips(Set<Salvo> mySalvoes , Set<Ship> opponentShips){
+    public static List<Ship> getSunkenShips(Set<Salvo> mySalvoes, Set<Ship> opponentShips) {
         List<String> allShots = new ArrayList<>();
         mySalvoes.forEach(salvo -> allShots.addAll(salvo.getLocations()));
         return opponentShips
@@ -56,46 +56,39 @@ public class Util {
     //Game States
     public static String gameState(GamePlayer gamePlayer) {
         Map<String, Object> hits = new LinkedHashMap<>();
-        HitsDTO hitsDTO = new HitsDTO();
-        int totalDamagecarrier = 5;
-        int totalDamagebattleship = 4;
-        int totalDamagesubmarine = 3;
-        int totalDamagedestroyer= 3;
-        int totalDamagepatrolboat = 2;
-
 
         if (gamePlayer.getShips().isEmpty()) {
             return "PLACESHIPS";
         }
-
-        if (gamePlayer.getGame().getGamePlayers().size() == 1) {
+        if (gamePlayer.getGame().getGamePlayers().size() == 1 || Util.getOpponent(gamePlayer).get().getShips().size()== 0) {
             return "WAITINGFOROPP";
         }
-        if (gamePlayer.getGame().getGamePlayers().size()==2){
-            return "PLAY";
+
+        if (gamePlayer.getGame().getGamePlayers().size() == 2) {
+            HitsDTO hitsDTO = new HitsDTO();
+            int mySelfImpact = hitsDTO.getSunkenDTO(gamePlayer);
+            int opponentImpact = hitsDTO.getSunkenDTO(gamePlayer.getOpponent());
+
+            if (mySelfImpact == 17 && opponentImpact == 17) {
+                return "TIE";
+            } else if (mySelfImpact == 17) {
+                return "LOSE";
+            } else if (opponentImpact == 17) {
+                return "WON";
+            }
         }
-
-
-        if (Util.getOpponent(gamePlayer).get().getShips().size()>=1){
-            return "PLAY";
-        }
-
-         if (Util.getOpponent(gamePlayer).get().getShips().isEmpty()){
-
-            return "WON";
-        }
-
-
-        if (gamePlayer.getShips().size() == 0) {
-            return "LOST";
-        } else
-            return "PLAY";
-
-
+        return "PLAY";
     }
-
-
 }
+
+
+
+
+
+
+
+
+
 
 
 
