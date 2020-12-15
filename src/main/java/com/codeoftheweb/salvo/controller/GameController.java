@@ -64,7 +64,7 @@ public class GameController {
 
         long gamePlayersCount = gameToJoin.getGamePlayers().size();
 
-        Set<Long> gamePlayerToJoin= gameToJoin.getGamePlayers() .stream()
+        Set<Long> gamePlayerToJoin= gameToJoin.getGamePlayers().stream()
                 .map(gp ->
                         gp.getPlayer().getId()).collect(Collectors.toSet());
 
