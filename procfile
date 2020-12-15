@@ -1,1 +1,1 @@
-E:\Workspace\salvo\src\main\java\com\codeoftheweb\salvo\SalvoApplication.java
+web: java -jar build/libs/

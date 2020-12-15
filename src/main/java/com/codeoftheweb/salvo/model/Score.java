@@ -5,6 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.HashSet;
 
 @Entity
 public class Score {
@@ -27,7 +28,9 @@ public class Score {
     private Player player;
 
 
-    public Score(){}
+    public Score(){
+
+    }
 
     public Score(double score, LocalDateTime finishDate, Game game, Player player) {
         this.score = score;

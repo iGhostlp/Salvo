@@ -53,6 +53,8 @@ public class Util {
             return "WAIT";
         }
         if (gamePlayer.getGame().getGamePlayers().size() == 2) {
+        }else if (myTurnSalvo == enemyTurnSalvo){
+
             HitsDTO hitsDTO = new HitsDTO();
             int mySelfImpact = hitsDTO.getSunkenDTO(gamePlayer);
             int opponentImpact = hitsDTO.getSunkenDTO(gamePlayer.getOpponent());
@@ -65,7 +67,6 @@ public class Util {
                 return "WON";
             }
         }
-
         return "PLAY";
     }
 }

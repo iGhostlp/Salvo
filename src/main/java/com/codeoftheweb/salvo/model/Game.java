@@ -24,8 +24,11 @@ public class Game{
     @OrderBy
     private Set<Score> scores;
 
+
+
     public Game(){
         this.gamePlayers = new HashSet<>();
+        this.scores= new HashSet<Score>();
     }
 
     public Game(LocalDateTime created) {

@@ -42,8 +42,6 @@ public class GamePlayer {
         this.ship = new HashSet<Ship>();
         this.salvo = new HashSet<Salvo>();
 
-        //OJO
-        this.game = new Game();
     }
 
     public GamePlayer(Player player, Game game) {
