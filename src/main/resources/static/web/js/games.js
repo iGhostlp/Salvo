@@ -59,8 +59,10 @@ $('.login-form').on('submit', function (event) {
                         $("#newPassword").val("");
                         $("#newName").val("");
                         updateJson();
+                        $("#createGameForm").show();
                         closeMyModal();
                         playLoginSound();
+
                         
                     })
                     .fail(function() {
