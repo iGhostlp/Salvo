@@ -27,11 +27,12 @@ public class GamePlayer {
     @JoinColumn(name = "gameID")
     private Game game;
 
+    @OrderBy
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "gamePlayerID")
     private Set<Ship> ship;
 
-
+    @OrderBy
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "gamePlayerID")
     private Set<Salvo> salvo;
@@ -40,6 +41,9 @@ public class GamePlayer {
     public GamePlayer() {
         this.ship = new HashSet<Ship>();
         this.salvo = new HashSet<Salvo>();
+
+        //OJO
+        this.game = new Game();
     }
 
     public GamePlayer(Player player, Game game) {
