@@ -60,10 +60,14 @@ public class Util {
         if (gamePlayer.getShips().isEmpty()) {
             return "PLACESHIPS";
         }
-        if (gamePlayer.getGame().getGamePlayers().size() == 1 || Util.getOpponent(gamePlayer).get().getShips().size()== 0) {
+        if (gamePlayer.getGame().getGamePlayers().size() == 1 || Util.getOpponent(gamePlayer).get().getShips().size() == 0) {
             return "WAITINGFOROPP";
         }
-
+        long myTurnSalvo = gamePlayer.getSalvo().size();
+        long enemyTurnSalvo = gamePlayer.getOpponent().getSalvo().size();
+        if (myTurnSalvo > enemyTurnSalvo) {
+            return "WAIT";
+        }
         if (gamePlayer.getGame().getGamePlayers().size() == 2) {
             HitsDTO hitsDTO = new HitsDTO();
             int mySelfImpact = hitsDTO.getSunkenDTO(gamePlayer);
