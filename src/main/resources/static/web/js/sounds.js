@@ -15,3 +15,10 @@ function victory(){
     })
     victory.play();
 }
+function lose(){
+    let lose = new Howl({
+        src: ['./sounds/youlose.mp3'],
+        volume: 0.3
+    })
+    lose.play();
+}

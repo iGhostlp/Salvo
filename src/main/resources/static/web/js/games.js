@@ -26,7 +26,8 @@ $('.login-form').on('submit', function (event) {
                 $("#password").val("");
                 updateJson();
                 $("#createGameForm").show();
-                playLoginSound();
+                $("#login").delay(2000).hide( "slow" );
+                $("#signup").delay(2000).hide( "slow" );
 
             })
             .fail(function() {
@@ -62,6 +63,8 @@ $('.login-form').on('submit', function (event) {
                         $("#createGameForm").show();
                         closeMyModal();
                         playLoginSound();
+                        $("#login").delay(2000).hide( "slow" );
+                        $("#signup").delay(2000).hide( "slow" );
 
                         
                     })
@@ -102,6 +105,8 @@ $('#logout-form').on('submit', function (event) {
                 console.log("logout ok");
                 $('#logoutSuccess').show("slow").delay(2000).hide("slow");
                 updateJson();
+                $("#login").delay(2000).show( "slow" );
+                $("#signup").delay(2000).show( "slow" );
             })
             .fail(function () {
                 console.log("logout fails");
