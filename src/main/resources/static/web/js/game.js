@@ -100,7 +100,6 @@ function refreshGameView(_url) {
                 makeGameRecordTable(gamePlayerData.hits.self, "gameRecordSelfTable");
                 $('#battleGrids').show('puff', 'slow');
                 $('#gameRecordBlock').show('puff', 'slow');
-             //   $('#youwin').show('puff','slow');
                 displayModal("WON");
                 victory();
                 console.log("yes you won");

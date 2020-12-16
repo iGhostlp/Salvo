@@ -22,7 +22,6 @@ public class Ship {
 
     @ElementCollection
     @Column(name = "location")
-    @OrderBy
     private List<String> locations;
 
 
