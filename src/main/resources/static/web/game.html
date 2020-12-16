@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/gridstack.css" />
     <link rel="stylesheet" href="./css/gridstack-extra.css" />
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/style.css"/>
 </head>
 
 <body>
@@ -62,7 +62,9 @@
                 <br>
             </div>
         </div>
-        <div id="battleGrids">
+
+    </div>
+    <div id="battleGrids">
             <div class="row">
 
                 <div class="col-sm-6">
@@ -227,6 +229,8 @@
                         </div>
 
                     </div>
+
+
                     <!--// table end //-->
 
                 </div>
@@ -437,6 +441,31 @@
     </div>
 
 
+    <!--// WON MODAL //-->
+    <div class="modal fade" id="winModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Results...</h5>
+                    <img src="./img/youwin.gif" width="400" height="400"/>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="winBody">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    </div>
+
+
+
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <!-- my own files shipPlacement.js, interactsalvo.js, game.js in this order!!!-->
@@ -456,6 +485,8 @@
     <script src="./js/shipPlacement.js"></script>
     <script src="./js/interactsalvo.js"></script>
     <script src="./js/game.js"></script>
+    <script src="./js/modal.js"></script>
+    <script src="./js/lottie.js"></script>
 </body>
 
 </html>

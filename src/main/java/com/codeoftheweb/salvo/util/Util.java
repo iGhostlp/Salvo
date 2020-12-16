@@ -53,14 +53,11 @@ public class Util {
         if (myTurnSalvo > enemyTurnSalvo) {
             return "WAIT";
         }
-        if (gamePlayer.getGame().getGamePlayers().size() == 2 && gamePlayer.getSalvo().size() > Util.getOpponent(gamePlayer).get().getSalvo().size()) {
-
+        if (gamePlayer.getGame().getGamePlayers().size() == 2){ /* gamePlayer.getSalvo().size() > Util.getOpponent(gamePlayer).get().getSalvo().size())*/
 
         HitsDTO hitsDTO = new HitsDTO();
         int mySelfImpact = hitsDTO.getSunkenDTO(gamePlayer);
         int opponentImpact = hitsDTO.getSunkenDTO(gamePlayer.getOpponent());
-
-
         if (mySelfImpact == 17 && opponentImpact == 17) {
 
             return "TIE";

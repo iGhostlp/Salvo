@@ -54,7 +54,6 @@ public class AppController {
         if (Util.isGuest(authentication)) {
             return new ResponseEntity<>(Util.makeMap("error","Not logged in"),HttpStatus.UNAUTHORIZED);
         }
-
         if (player.getId() != gamePlayer.getPlayer().getId()){
             return new ResponseEntity<>(Util.makeMap("error","This is not your board, stay back"),HttpStatus.UNAUTHORIZED);
         }
