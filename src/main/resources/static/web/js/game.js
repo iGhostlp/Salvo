@@ -13,6 +13,7 @@ var youID = "";
 var salvoJSON;
 var salvoPositions = [];
 var waitState = false;
+var numRep = 0;
 
 refreshGameView(makeUrl());
 
@@ -440,7 +441,8 @@ function makeGameRecordTable (hitsArray, gameRecordTableId) {
                 hitsReport += "SUNK! ";
                 $(playerTag + 'battleshipIcon').html('<img src="img/battleshipsunk.png">');
                 shipsAfloat--;
-//                sunken();
+                sunken(numRep);
+                numRep = numRep +1;
 
 
 
