@@ -6,3 +6,10 @@ function sunken(){
     })
     sunken.play();
 }
+function victory(){
+    let victory = new Howl({
+        src: ['./sounds/youwin.mp3'],
+        volume: 0.3
+    })
+    victory.play();
+}

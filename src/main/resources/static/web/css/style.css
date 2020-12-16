@@ -236,6 +236,31 @@ body {
 
 }
 
+/*.youwin{
+    width: 451px;
+    height: 451px;
+    background-image: url(../img/youwin.gif);
+    padding: 10px 20px;
+    margin: 20% auto;
+    position: relative;
+    background-size: cover;
+}
+.modal{
+  background-color: rgba(0,0,0,.8);
+  position:fixed;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  opacity:0;
+  pointer-events:none;
+  transition: all 1s;
+}
+#youwin:target{
+    opacity: 1;
+    pointer-events: auto;
+}*/
+
 /* DivTable.com */
 .divTable{
     display: table;

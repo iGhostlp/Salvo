@@ -93,12 +93,17 @@ function refreshGameView(_url) {
             }
 
             if (gamePlayerData.gameState === "WON"){
+
                 showSelf(gamePlayerData);
                 makeGameRecordTable(gamePlayerData.hits.opponent, "gameRecordOppTable");
                 makeGameRecordTable(gamePlayerData.hits.self, "gameRecordSelfTable");
                 $('#battleGrids').show('puff', 'slow');
                 $('#gameRecordBlock').show('puff', 'slow');
+             //   $('#youwin').show('puff','slow');
+                displayModal("WON");
+                victory();
                 console.log("yes you won");
+
             }
             if (gamePlayerData.gameState === "TIE"){
                 showSelf(gamePlayerData);
@@ -435,7 +440,7 @@ function makeGameRecordTable (hitsArray, gameRecordTableId) {
                 hitsReport += "SUNK! ";
                 $(playerTag + 'battleshipIcon').html('<img src="img/battleshipsunk.png">');
                 shipsAfloat--;
-                sunken();
+//                sunken();
 
 
 
